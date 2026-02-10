@@ -1,0 +1,134 @@
+#VRML_SIM R2025a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/robots/robotis/turtlebot/protos/TurtleBot3Burger.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/devices/robotis/protos/RobotisLds01.proto"
+
+WorldInfo {
+  basicTimeStep 20
+  contactProperties [
+    ContactProperties {
+      coulombFriction [
+        10000
+      ]
+    }
+  ]
+}
+Viewpoint {
+  orientation -0.40943763576206693 0.40943878340238277 0.8153040568202427 1.7735902733923978
+  position -0.00417838766853687 -5.802560004609822 7.602162188863948
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+DirectionalLight {
+  direction -0.2 0.3 -1
+}
+RectangleArena {
+  floorSize 5 5
+}
+Solid {
+  translation 0 2 0.1
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.3 0.3 0.3
+      }
+      geometry Box {
+        size 4 0.1 0.2
+      }
+    }
+  ]
+  name "wall_north"
+  boundingObject Box {
+    size 4 0.1 0.2
+  }
+}
+Solid {
+  translation 0 -2 0.1
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.3 0.3 0.3
+      }
+      geometry Box {
+        size 4 0.1 0.2
+      }
+    }
+  ]
+  name "wall_south"
+  boundingObject Box {
+    size 4 0.1 0.2
+  }
+}
+Solid {
+  translation -2 0 0.1
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.3 0.3 0.3
+      }
+      geometry Box {
+        size 0.1 4 0.2
+      }
+    }
+  ]
+  name "wall_west"
+  boundingObject Box {
+    size 0.1 4 0.2
+  }
+}
+Solid {
+  translation 2 0 0.1
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.3 0.3 0.3
+      }
+      geometry Box {
+        size 0.1 4 0.2
+      }
+    }
+  ]
+  name "wall_east"
+  boundingObject Box {
+    size 0.1 4 0.2
+  }
+}
+Solid {
+  translation 0.3 0.2 0.1
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.2 0.5 0.8
+        roughness 0.3
+      }
+      geometry Cylinder {
+        height 0.2
+        radius 0.3
+      }
+    }
+  ]
+  name "obstacle_cylinder"
+  boundingObject Cylinder {
+    height 0.2
+    radius 0.3
+  }
+  physics Physics {
+    density -1
+    mass 2
+  }
+}
+DEF TURTLEBOT TurtleBot3Burger {
+  translation -1 -1 0.05
+  rotation 0 0 1 0
+  controller "<extern>"
+  supervisor TRUE
+  extensionSlot [
+    RobotisLds01 {
+    }
+  ]
+}
