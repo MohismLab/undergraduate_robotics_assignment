@@ -2,10 +2,11 @@
 
 ![Assignment](images/.assignment.jpg)
 
-## Requirements
+## Requirements 
 
+All computers at E11-1046 shall have following packages. If you want to install them on your own computer, you can run following command.  
 - **Webots R2025a** installed (`webots` available on your PATH)
-- **ROS 2 Jazzy** sourced in your shell (`source /opt/ros/jazzy/setup.bash`)
+- **ROS 2 Jazzy** sourced in your shell (`source /opt/ros/jazzy/setup.bash`). You can find installation tutorial via [this link](https://docs.ros.org/en/jazzy/Installation.html).
 - **Python dependencies**: `numpy`, `matplotlib`, `scipy`, `PyYAML`
 
 ```bash
