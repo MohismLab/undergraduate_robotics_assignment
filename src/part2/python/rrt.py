@@ -10,7 +10,7 @@ import os
 import re
 import scipy.signal
 import yaml
-
+from pathlib import Path
 
 # Constants used for indexing.
 X = 0
@@ -29,8 +29,10 @@ MAX_ITERATIONS = 500
 WALL_OFFSET = 2.0
 CYLINDER_POSITION = np.array([0.3, 0.2], dtype=np.float32)
 CYLINDER_RADIUS = 0.3
-
-
+Path_Root = Path.cwd()
+script_dir = Path(__file__).resolve().parent
+print(Path_Root)
+print(script_dir)
 def draw_from_distribution():
     # Uniform distribution
     return np.random.uniform(-WALL_OFFSET, WALL_OFFSET, size=2)
@@ -358,9 +360,11 @@ if __name__ == "__main__":
     args, unknown = parser.parse_known_args()
 
     # Load map.
-    with open(args.map + ".yaml") as fp:
+
+    with open(script_dir / (args.map + ".yaml")) as fp:
         data = yaml.safe_load(fp)
-    img = read_pgm(os.path.join(os.path.dirname(args.map), data["image"]))
+
+    img = read_pgm(script_dir/os.path.join(os.path.dirname(args.map), data["image"]))
     occupancy_grid = np.empty_like(img, dtype=np.int8)
     occupancy_grid[:] = UNKNOWN
     occupancy_grid[img < 0.1] = OCCUPIED
