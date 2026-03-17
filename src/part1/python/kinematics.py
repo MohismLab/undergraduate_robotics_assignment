@@ -30,13 +30,68 @@ def euler(current_pose, t, dt):
     # current_pose[Y] is the current y position.
     # current_pose[YAW] is the current orientation of the robot.
     # Update next_pose[X], next_pose[Y], next_pose[YAW].
+    def w_fun(tn):
+        return np.cos(tn)
+        # return np.cos(np.floor(tn))
 
+    x_dot = u * np.cos(current_pose[YAW])
+    y_dot = u * np.sin(current_pose[YAW])
+    theta_dot = w_fun(t)
+    next_pose[X] = current_pose[X] + dt * x_dot
+    next_pose[Y] = current_pose[Y] + dt * y_dot
+    next_pose[YAW] = current_pose[YAW] + dt * theta_dot
     return next_pose
 
 
 def rk4(current_pose, t, dt):
     next_pose = current_pose.copy()
     u = 0.25
+
+    def w_fun(tn):
+        return np.cos(tn)
+        # return np.cos(np.floor(tn))
+
+    # k1
+    x_dot = u * np.cos(current_pose[YAW])
+    y_dot = u * np.sin(current_pose[YAW])
+    theta_dot = w_fun(t)
+
+    # After dt/2, get mid points
+    x_mid = current_pose[X] + dt / 2 * x_dot
+    y_mid = current_pose[Y] + dt / 2 * y_dot
+    theta_mid = current_pose[YAW] + dt / 2 * theta_dot
+    # get k2
+    x_dot2 = u * np.cos(theta_mid)
+    y_dot2 = u * np.sin(theta_mid)
+    theta_dot2 = w_fun(t + dt / 2)
+
+    # after dt/2, get mid points (use k2)
+    x_mid2 = current_pose[X] + dt / 2 * x_dot2
+    y_mid2 = current_pose[Y] + dt / 2 * y_dot2
+    theta_mid2 = current_pose[YAW] + dt / 2 * theta_dot2
+    # get k3
+    x_dot3 = u * np.cos(theta_mid2)
+    y_dot3 = u * np.sin(theta_mid2)
+    theta_dot3 = w_fun(t + dt / 2)
+
+    # after dt, get end points (use k3)
+    x_end = current_pose[X] + dt * x_dot3
+    y_end = current_pose[Y] + dt * y_dot3
+    theta_end = current_pose[YAW] + dt * theta_dot3
+    # get k4
+    x_dot4 = u * np.cos(theta_end)
+    y_dot4 = u * np.sin(theta_end)
+    theta_dot4 = w_fun(t + dt)
+
+    def forth_order(k1, k2, k3, k4, dt):
+        return 1 / 6 * (k1 + 2 * k2 + 2 * k3 + k4) * dt
+
+    # Get final
+    next_pose[X] = current_pose[X] + forth_order(x_dot, x_dot2, x_dot3, x_dot4, dt)
+    next_pose[Y] = current_pose[Y] + forth_order(y_dot, y_dot2, y_dot3, y_dot4, dt)
+    next_pose[YAW] = current_pose[YAW] + forth_order(
+        theta_dot, theta_dot2, theta_dot3, theta_dot4, dt
+    )
     # MISSING: Use classical Runge-Kutta to return the next pose of our robot.
     # https://en.wikipedia.org/wiki/Runge%E2%80%93Kutta_methods
     # t is the current time.
