@@ -16,7 +16,14 @@ Open a terminal and create directory in Documents:
 cd ~/Documents
 mkdir -p course/robotics_ws/src
 cd ~/Documents/course/robotics_ws/src
-git clone git clone https://github.com/MohismLab/robotics_assignment_part2.git
+git clone https://github.com/MohismLab/undergraduate_robotics_assignment.git
+```
+or you can download the repository as zip file, and extrat the zip file  to obtain following files:
+```bash
+images/
+src/
+install_dependencies.sh
+README.md
 ```
 
 ## Build

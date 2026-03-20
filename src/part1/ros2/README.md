@@ -15,7 +15,14 @@ sudo apt install ros-jazzy-turtlebot3-description
 cd ~/Documents
 mkdir -p course/robotics_ws/src
 cd ~/Documents/course/robotics_ws/src
-git clone https://github.com/MohismLab/robotics_assignment_part2.git
+git clone https://github.com/MohismLab/undergraduate_robotics_assignment.git
+```
+or you can download the repository as zip file, and extrat the zip file  to obtain following files:
+```bash
+images/
+src/
+install_dependencies.sh
+README.md
 ```
 
 ## Build

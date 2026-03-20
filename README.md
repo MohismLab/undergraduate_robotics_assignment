@@ -30,6 +30,14 @@ cd ~/Documents/course/robotics_ws/src
 ```bash
 git clone https://github.com/MohismLab/undergraduate_robotics_assignment.git
 ```
+or you can download the repository as zip file, and extrat the zip file  to obtain following files:
+```bash
+images/
+src/
+install_dependencies.sh
+README.md
+```
+move all these files within `~/Documents/course/robotics_ws`.
 
 ## Quick Start
 
