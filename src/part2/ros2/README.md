@@ -3,7 +3,7 @@
 This package implements Potential field and RRT (Rapidly-exploring Random Tree) path planning with pre-built map navigation using ROS 2 and Webots.
 
 ## Requirements
-
+All computers at E11-1046 shall have following packages. If you want to install them on your own computer, you can run following command.  
 ```bash
 sudo apt install ros-jazzy-webots-ros2
 sudo apt install ros-jazzy-turtlebot3-description
@@ -26,10 +26,18 @@ install_dependencies.sh
 README.md
 ```
 
-## Build
-
+## Quick Start
+Make sure that your terminal is within `~/Documents/course/robotics_ws`, otherwise:
 ```bash
 cd ~/Documents/course/robotics_ws
+```
+deactivate conda to avoid python version conflict and source ros2.
+```bash
+conda deactivate
+source /opt/ros/jazzy/setup.bash 
+```
+**Build everything:**
+```bash
 colcon build
 source install/setup.bash
 ```

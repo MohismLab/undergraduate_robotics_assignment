@@ -40,10 +40,17 @@ README.md
 move all these files within `~/Documents/course/robotics_ws`.
 
 ## Quick Start
-
-**Build everything:**
+Make sure that your terminal is within `~/Documents/course/robotics_ws`, otherwise:
 ```bash
 cd ~/Documents/course/robotics_ws
+```
+deactivate conda to avoid python version conflict and source ros2.
+```bash
+conda deactivate
+source /opt/ros/jazzy/setup.bash 
+```
+**Build everything:**
+```bash
 colcon build
 source install/setup.bash
 ```
