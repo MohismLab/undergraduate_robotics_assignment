@@ -1,6 +1,6 @@
-# Part 2: RRT Navigation with Pre-built Map
+# Part 2: Navigation and Planning algorithms with Pre-built Map
 
-This package implements RRT (Rapidly-exploring Random Tree) path planning with pre-built map navigation using ROS 2 and Webots.
+This package implements Potential field and RRT (Rapidly-exploring Random Tree) path planning with pre-built map navigation using ROS 2 and Webots.
 
 ## Requirements
 
