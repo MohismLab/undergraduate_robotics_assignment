@@ -46,11 +46,17 @@ source install/setup.bash
 
 **Terminal 1: Start Webots simulator + fake_localization**
 ```bash
+conda deactivate
+source /opt/ros/jazzy/setup.bash 
+source install/setup.bash
 ros2 launch part2_ros2 webots_world.launch.py
 ```
 
 **Terminal 2: Start map server (pre-built map)**
 ```bash
+conda deactivate
+source /opt/ros/jazzy/setup.bash 
+source install/setup.bash
 ros2 launch part2_ros2 potential_field_navigation.launch.py
 ```
 
@@ -58,16 +64,25 @@ ros2 launch part2_ros2 potential_field_navigation.launch.py
 
 **Terminal 1: Start Webots simulator + fake_localization**
 ```bash
+conda deactivate
+source /opt/ros/jazzy/setup.bash 
+source install/setup.bash
 ros2 launch part2_ros2 webots_world.launch.py
 ```
 
 **Terminal 2: Start map server (pre-built map)**
 ```bash
+conda deactivate
+source /opt/ros/jazzy/setup.bash 
+source install/setup.bash
 ros2 launch part2_ros2 map.launch.py
 ```
 
 **Terminal 3: Start RRT navigation**
 ```bash
+conda deactivate
+source /opt/ros/jazzy/setup.bash 
+source install/setup.bash
 ros2 launch part2_ros2 rrt_navigation.launch.py
 ```
 

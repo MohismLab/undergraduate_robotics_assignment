@@ -45,11 +45,18 @@ source install/setup.bash
 
 **Terminal 1: Start Webots simulator**
 ```bash
+conda deactivate
+source /opt/ros/jazzy/setup.bash 
+source install/setup.bash
 ros2 launch part1_ros2 webots_world.launch.py
 ```
 
 **Terminal 2: Run obstacle avoidance**
 ```bash
+conda deactivate
+source /opt/ros/jazzy/setup.bash 
+source install/setup.bash
+
 # Braitenberg mode
 ros2 launch part1_ros2 obstacle_avoidance.launch.py mode:=braitenberg
 
@@ -59,12 +66,18 @@ ros2 launch part1_ros2 obstacle_avoidance.launch.py mode:=rule_based
 
 **Terminal 3: Run localization (optional)**
 ```bash
+conda deactivate
+source /opt/ros/jazzy/setup.bash 
+source install/setup.bash
 ros2 launch part1_ros2 localization.launch.py
 ```
 
 ## Utilities
 
 ```bash
+conda deactivate
+source /opt/ros/jazzy/setup.bash 
+source install/setup.bash
 # Plot logged trajectories
 ros2 run part1_ros2 plot_trajectory_part1
 ```
