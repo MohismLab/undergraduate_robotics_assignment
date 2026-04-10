@@ -38,7 +38,7 @@ GOAL_POSITION = np.array([1.5, 1.5], dtype=np.float32)
 MAX_SPEED = 0.18  # Match TurtleBot3 motor limits (6.67 rad/s * 0.033m = 0.22 m/s)
 EPSILON = 0.2
 
-USE_RELATIVE_POSITIONS = True
+USE_RELATIVE_POSITIONS = False
 
 X = 0
 Y = 1
