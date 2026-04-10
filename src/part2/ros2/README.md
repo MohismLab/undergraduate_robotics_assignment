@@ -60,6 +60,15 @@ source install/setup.bash
 ros2 launch part2_ros2 potential_field_navigation.launch.py
 ```
 
+**Terminal 3: Plot Trajectory**
+When the terminal within `~/Documents/course/robotics_ws`
+```bash
+conda deactivate
+source /opt/ros/jazzy/setup.bash 
+source install/setup.bash
+python3 src/part2/ros2/part2_ros2/plot_trajectory.py 
+```
+
 ## Running RRT Navigation
 
 **Terminal 1: Start Webots simulator + fake_localization**
